@@ -18,7 +18,7 @@ const getRandomUser = async (id) => {
       user.email = result.email;
       user.number = convertNumber([result.cell]);
       user.edited = [];
-      user.picture = result.picture.medium;
+      user.picture = result.picture.large;
     }
     )
     .catch(error => {
