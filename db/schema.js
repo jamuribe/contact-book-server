@@ -5,7 +5,8 @@ const contactSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   number: { type: Number, required: true },
-  edited: Array
+  edited: Array,
+  picture: String
 }, // eslint-disable-next-line comma-dangle
   {
     timestamps: true
