@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
 const convertNumber = (number) => {
-  let phoneNumber = number.map((number) => {
+  const phoneNumber = number.map((number) => {
     return parseInt(number.replace(/[^0-9]/g, ''), 10);
-  })
+  });
   return Number(phoneNumber);
-}
+};
 
 const getRandomUser = async (id) => {
-  let user = {};
+  const user = {};
 
   await axios.get('https://randomuser.me/api/')
     .then(response => response.data.results[0])
@@ -23,8 +23,8 @@ const getRandomUser = async (id) => {
     )
     .catch(error => {
       console.log('Couldn\'t add random user. ', error);
-    })
+    });
   return user;
-}
+};
 
 export default getRandomUser;

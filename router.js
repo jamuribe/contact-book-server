@@ -8,7 +8,6 @@ router
   .put('/update', controllers.updateContact)
   .delete('/erase', controllers.deleteContact)
   .post('/add', controllers.addContact)
-  .post('/random', controllers.addRandomContact)
-
+  .post('/random', controllers.addRandomContact);
 
 export default router;

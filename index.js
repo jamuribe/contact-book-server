@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 import router from './router.js';
 import 'dotenv/config.js';
 import cors from 'cors';
@@ -11,5 +11,5 @@ app.use(cors());
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
-})
+  console.log(`App listening at http://localhost:${port}`);
+});

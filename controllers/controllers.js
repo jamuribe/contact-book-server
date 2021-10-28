@@ -1,5 +1,5 @@
-import dbRequest from "../requestToDB/requestToDB.js";
-import getRandomUser from "../randomUserAPI/randomUserAPI.js";
+import dbRequest from '../requestToDB/requestToDB.js';
+import getRandomUser from '../randomUserAPI/randomUserAPI.js';
 
 const getAllContacts = async (req, res) => {
   try {
@@ -10,7 +10,7 @@ const getAllContacts = async (req, res) => {
     res.status(500);
     console.log('Error: 1 ', error);
   }
-}
+};
 
 const updateContact = async (req, res) => {
   try {
@@ -22,7 +22,7 @@ const updateContact = async (req, res) => {
     res.status(500);
     console.log('Error: 2 ', error);
   }
-}
+};
 
 const addContact = async (req, res) => {
   try {
@@ -34,20 +34,20 @@ const addContact = async (req, res) => {
     res.status(500);
     console.log('Error: 3 ', error);
   }
-}
+};
 
 const addRandomContact = async (req, res) => {
   try {
     const id = req.body.id;
     const contact = await getRandomUser(id);
-    await dbRequest.addOne(contact)
+    await dbRequest.addOne(contact);
     res.send('Random contact created');
-    res.status(200)
+    res.status(200);
   } catch (error) {
     res.status(500);
     console.log('Error: 4 ', error);
   }
-}
+};
 
 const deleteContact = async (req, res) => {
   try {
@@ -59,6 +59,6 @@ const deleteContact = async (req, res) => {
     res.status(500);
     console.log('Error: 5 ', error);
   }
-}
+};
 
 export default { getAllContacts, updateContact, addContact, deleteContact, addRandomContact };

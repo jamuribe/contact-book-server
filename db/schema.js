@@ -1,4 +1,4 @@
-import mongoose from "./dataBase.js";
+import mongoose from './dataBase.js';
 
 const contactSchema = new mongoose.Schema({
   id: Number,
@@ -8,9 +8,9 @@ const contactSchema = new mongoose.Schema({
   edited: Array,
   picture: String
 }, // eslint-disable-next-line comma-dangle
-  {
-    timestamps: true
-  });
+{
+  timestamps: true
+});
 
 const ContactsDB = mongoose.model('Contacts', contactSchema);
 
