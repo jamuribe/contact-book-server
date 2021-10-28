@@ -40,8 +40,8 @@ const addRandomContact = async (req, res) => {
   try {
     const id = req.body.id;
     const contact = await getRandomUser(id);
-    await dbRequest.addOne(contact);
-    res.send('Random user successfully added');
+    await dbRequest.addOne(contact)
+    res.send('Random contact created');
     res.status(200)
   } catch (error) {
     res.status(500);
