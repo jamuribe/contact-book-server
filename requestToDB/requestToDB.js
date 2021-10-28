@@ -3,7 +3,7 @@ import ContactsDB from "../db/schema.js";
 const contactsInDB = await ContactsDB.create({
   'name': "Joes Ant",
   'email': "ant@gmailc.o",
-  'number': 666,
+  'number': 66665454,
   'edited': [],
   'picture': 'https://thispersondoesnotexist.com/image'
 });
