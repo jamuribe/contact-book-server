@@ -28,9 +28,9 @@ You will also see any lint errors in the console.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`PORT`
+`PORT`e.g. : PORT=3000
 
-`MONGODB_URI`
+`MONGODB_URI` e.g. : MONGODB_URI='mongodb://localhost:27017'
 
 
 ## Screenshots
