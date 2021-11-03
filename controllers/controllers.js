@@ -1,4 +1,4 @@
-import dbRequest from '../requestToDB/requestToDB.js';
+import dbRequest from '../db/requestToDB/requestToDB.js';
 import getRandomUser from '../randomUserAPI/randomUserAPI.js';
 
 const getAllContacts = async (req, res) => {
@@ -17,7 +17,7 @@ const updateContact = async (req, res) => {
     const contact = req.body;
     await dbRequest.updateOne(contact);
     res.send('Contact updated successfully.');
-    res.status(201);
+    res.status(200);
   } catch (error) {
     res.status(500);
     console.log('Error: 2 ', error);
@@ -42,7 +42,7 @@ const addRandomContact = async (req, res) => {
     const contact = await getRandomUser(id);
     await dbRequest.addOne(contact);
     res.send('Random contact created');
-    res.status(200);
+    res.status(201);
   } catch (error) {
     res.status(500);
     console.log('Error: 4 ', error);
@@ -54,7 +54,7 @@ const deleteContact = async (req, res) => {
     const contact = req.body;
     await dbRequest.deleteOne(contact);
     res.send('Contact deleted successfully.');
-    res.status(201);
+    res.status(200);
   } catch (error) {
     res.status(500);
     console.log('Error: 5 ', error);
