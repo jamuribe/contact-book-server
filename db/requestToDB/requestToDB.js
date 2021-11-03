@@ -1,16 +1,8 @@
-import ContactsDB from "../db/schema.js";
-
-const contactsInDB = await ContactsDB.create({
-  'name': "Joes Ant",
-  'email': "ant@gmailc.o",
-  'number': 66665454,
-  'edited': [],
-  'picture': 'https://thispersondoesnotexist.com/image'
-});
+import Contacts from "../schema.js";
 
 const getAll = async () => {
   try {
-    const contacts = await ContactsDB.find({})
+    const contacts = await Contacts.find({})
     return contacts;
   } catch (error) {
     console.log('Error: 0.1 ', error);
@@ -19,7 +11,7 @@ const getAll = async () => {
 
 const updateOne = async (contact) => {
   try {
-    await ContactsDB.findOneAndUpdate(
+    await Contacts.findOneAndUpdate(
       { _id: contact.data.contact._id },
       {
         name: contact.data.contact.name,
@@ -28,15 +20,16 @@ const updateOne = async (contact) => {
         edited: contact.data.contact.edited,
         picture: contact.data.contact.picture
       }, { 'new': 'true' });
-    contactsInDB.save()
   } catch (error) {
     console.log('Couldn\'t update contact. ', error)
   }
 }
 
 const addOne = async (contact) => {
+  await Contacts.init();
+
   try {
-    await ContactsDB.create({
+    await Contacts.create({
       id: contact.id,
       name: contact.name,
       email: contact.email,
@@ -45,13 +38,13 @@ const addOne = async (contact) => {
       picture: contact.picture
     })
   } catch (error) {
-    console.log('Couldn\'t add contact. ', error)
+    console.log('Couldn\'t add contact. User already exists', error)
   }
 }
 
 const deleteOne = async (contact) => {
   try {
-    await ContactsDB.findOneAndDelete({
+    await Contacts.findOneAndDelete({
       _id: contact.contact._id
     })
   } catch (error) {
@@ -61,7 +54,7 @@ const deleteOne = async (contact) => {
 
 const findOne = async (contact) => {
   try {
-    await ContactsDB.findOne({ email: contact.email })
+    await Contacts.findOne({ email: contact.email })
   } catch (error) {
     console.log('Couldn\'t find contact. ', error)
 
